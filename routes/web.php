@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController; #untuk memanggil profile controller
 use App\Http\Controllers\UserController; #untuk memanggil profile controller
+use App\Http\Controllers\MataKuliahController; #untuk memanggil profile controller
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,10 @@ Route::get('/profile/{nama}/{npm}/{kelas}', [ProfileController::class, 'profile'
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
+
+Route::get('/matakuliah', [MataKuliahController::class, 'index']);
+Route::get('/matakuliah/create', [MataKuliahController::class, 'create'])->name('matakuliah.create');
+Route::post('/matakuliah', [MataKuliahController::class, 'store'])->name('matakuliah.store');
 // Route::get('/user/{user}', [UserController::class, 'show']);
 // Route::get('/user/{user}/edit', [UserController::class, 'edit']);
 // Route::put('/user/{user}', [UserController::class, 'update']);

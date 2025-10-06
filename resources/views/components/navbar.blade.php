@@ -3,7 +3,7 @@
     <div class="flex justify-between h-16 items-center">
       
       <div class="flex-shrink-0 text-xl font-bold">
-        MyApp
+        Data Mahasiswa
       </div>
 
       <div class="hidden md:flex space-x-6">
