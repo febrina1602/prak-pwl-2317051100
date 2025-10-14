@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Uuid;
 
 use function Laravel\Prompts\table;
 
@@ -14,7 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary()->default(Uuid::uuid4());
             $table->string('nama');
             $table->string('nim')->unique();
             $table->foreignId('kelas_id')->constrained('kelas');
