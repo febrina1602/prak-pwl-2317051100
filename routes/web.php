@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController; #untuk memanggil profile controller
-use App\Http\Controllers\UserController; #untuk memanggil profile controller
-use App\Http\Controllers\MataKuliahController; #untuk memanggil profile controller
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,16 @@ use App\Http\Controllers\MataKuliahController; #untuk memanggil profile controll
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/profile/{nama}/{npm}/{kelas}', [ProfileController::class, 'profile']);
@@ -37,7 +48,5 @@ Route::get('/matakuliah/{id}/edit', [MataKuliahController::class, 'edit'])->name
 Route::put('/matakuliah/{id}', [MataKuliahController::class, 'update'])->name('matakuliah.update');
 Route::delete('/matakuliah/{id}', [MataKuliahController::class, 'destroy'])->name('matakuliah.destroy');
 
-// Route::get('/user/{user}', [UserController::class, 'show']);
-// Route::get('/user/{user}/edit', [UserController::class, 'edit']);
-// Route::put('/user/{user}', [UserController::class, 'update']);
-// Route::delete('/user/{user}', [UserController::class, 'destroy']);
+
+require __DIR__.'/auth.php';

@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+{{-- @extends('layouts.app')
+@section('content') --}}
 @include('components.navbar')
 <div class="min-h-screen flex items-center justify-center bg-white p-6">
     <div class="bg-white shadow-2xl rounded-2xl w-full max-w-lg p-8">
@@ -47,4 +47,4 @@
     </div>
 </div>
 @include('components.footer')
-@endsection
+{{-- @endsection --}}

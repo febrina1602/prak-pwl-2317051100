@@ -1,6 +1,6 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
-@section('content')
+@section('content') --}}
 @include('components.navbar')
 
 {{-- Notifikasi --}}
@@ -74,4 +74,4 @@
     });
   }, 4000);
 </script>
-@endsection
+{{-- @endsection --}}

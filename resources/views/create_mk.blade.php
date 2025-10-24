@@ -1,6 +1,6 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
-@section('content')
+@section('content') --}}
 <div class="container">
     <h1>Buat Mata Kuliah Baru</h1>
 
@@ -16,4 +16,4 @@
         <button type="submit">Submit</button>
     </form>
 </div>
-@endsection
+{{-- @endsection --}}
